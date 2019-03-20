@@ -1,0 +1,19 @@
+.nav-container {
+  display: flex;
+  padding: 18em 3em;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: darkgoldenrod;
+}
+
+ul {
+  padding: 0px;
+  list-style: none;
+}
+
+ul > li {
+  color: black;
+  padding: 0.8em;
+  text-align: center;
+  background-color: burlywood;
+}

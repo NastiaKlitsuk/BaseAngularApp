@@ -1,0 +1,9 @@
+.app-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.app-content-container {
+    display: flex;
+    flex-direction: row;
+}
