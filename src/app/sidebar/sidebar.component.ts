@@ -1,8 +1,9 @@
 import { Component, OnInit } from "@angular/core";
-
-export interface Tab {
-  name: string;
-}
+import { CATEGORY_NAMES } from "../model/categories.model";
+import { Store } from "@ngrx/store";
+import * as SidebarActions from "../store/sidebar/sidebar.actions";
+import * as ProductsActions from "../store/products/products.actions"
+import { GlobalState } from "../store/global.state";
 
 @Component({
   selector: "app-sidebar",
@@ -10,16 +11,16 @@ export interface Tab {
   styleUrls: ["./sidebar.component.css"]
 })
 export class SidebarComponent implements OnInit {
-  private _tabs: Tab[];
+  private _categoriesNames: string[];
 
-  constructor() {}
+  constructor(private store: Store<GlobalState>) {}
 
   ngOnInit() {
-    this._tabs = [
-      { name: "HOME" },
-      { name: "GARDEN" },
-      { name: "CLOTHES" },
-      { name: "TOYS" }
-    ];
+    this._categoriesNames = Object.values(CATEGORY_NAMES);
+  }
+
+  onMenuSelected(categoryName) {
+    this.store.dispatch(new SidebarActions.CategorySelected(categoryName));
+    this.store.dispatch(new ProductsActions.LoadProducts(categoryName))
   }
 }

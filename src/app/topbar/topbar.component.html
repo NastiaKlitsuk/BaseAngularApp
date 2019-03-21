@@ -1,3 +1,5 @@
 <div class="topbar-container">
-  topbar works!
+  <span *ngIf="(_selectedCategory$ | async) as selectedCategory"
+    >Selected category: <span>{{selectedCategory}}</span></span
+  >
 </div>

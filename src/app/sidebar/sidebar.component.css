@@ -17,3 +17,7 @@ ul > li {
   text-align: center;
   background-color: burlywood;
 }
+
+ul > li:hover {
+  cursor: pointer;
+}

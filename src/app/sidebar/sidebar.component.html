@@ -1,5 +1,5 @@
 <div class="nav-container">
-  <ul *ngFor="let tab of _tabs">
-    <li>{{tab.name}}</li>
+  <ul *ngFor="let categoryName of _categoriesNames">
+    <li (click)="onMenuSelected(categoryName)">{{categoryName}}</li>
   </ul>
 </div>

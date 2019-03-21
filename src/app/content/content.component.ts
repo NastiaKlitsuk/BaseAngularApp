@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import { ProductsState, getProducts } from "../store/products/products.reducer";
+import { Store } from "@ngrx/store";
+import { Observable } from "rxjs";
+import { Product } from "../model/product.model";
 
 @Component({
-  selector: 'app-content',
-  templateUrl: './content.component.html',
-  styleUrls: ['./content.component.css']
+  selector: "app-content",
+  templateUrl: "./content.component.html",
+  styleUrls: ["./content.component.css"]
 })
 export class ContentComponent implements OnInit {
-
-  constructor() { }
+  private _products$: Observable<Product[]>;
+  constructor(private store: Store<ProductsState>) {}
 
   ngOnInit() {
+    this._products$ = this.store.select(getProducts);
   }
-
 }
