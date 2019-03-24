@@ -10,10 +10,14 @@ import { ContentComponent } from "./content/content.component";
 import { allReducers } from "./store";
 
 import { StoreModule } from "@ngrx/store";
-
-import { StoreDevtoolsModule } from '@ngrx/store-devtools'
-import { EffectsModule } from '@ngrx/effects';
-import { ProductsEffects } from './store/products/products.effects';
+import {
+  StoreRouterConnectingModule,
+  RouterStateSerializer
+} from "@ngrx/router-store";
+import { StoreDevtoolsModule } from "@ngrx/store-devtools";
+import { EffectsModule } from "@ngrx/effects";
+import { ProductsEffects } from "./store/products/products.effects";
+import { CustomSerializer } from "./store/router/router.reducer";
 
 @NgModule({
   declarations: [
@@ -27,10 +31,11 @@ import { ProductsEffects } from './store/products/products.effects';
     AppRoutingModule,
     CommonModule,
     StoreModule.forRoot(allReducers),
-    EffectsModule.forRoot([ ProductsEffects ]),
-    StoreDevtoolsModule.instrument(),
+    EffectsModule.forRoot([ProductsEffects]),
+    StoreRouterConnectingModule,
+    StoreDevtoolsModule.instrument()
   ],
-  providers: [],
+  providers: [{ provide: RouterStateSerializer, useClass: CustomSerializer }],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

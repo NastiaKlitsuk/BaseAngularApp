@@ -1,5 +1,9 @@
 <div class="nav-container">
   <ul *ngFor="let categoryName of _categoriesNames">
-    <li (click)="onMenuSelected(categoryName)">{{categoryName}}</li>
+    <li (click)="onMenuSelected(categoryName)">
+      <a [routerLink]="['/category', categoryName]">
+        <span>{{ categoryName }}</span>
+      </a>
+    </li>
   </ul>
 </div>
