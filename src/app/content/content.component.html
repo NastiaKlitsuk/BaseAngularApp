@@ -1,6 +1,6 @@
 <div class="content-container">
   <div *ngFor="let product of (_products$ | async)">
-    <div class="product-item-container">
+    <div class="product-item-container" (click)="onProductSelected(product)">
       <span class="product-name"><b>{{product.name}}</b></span>
       <img [src]="product.image" height="200px" alt="Description" />
       <span class="product-description"><b>description:</b> {{product.description}}</span>

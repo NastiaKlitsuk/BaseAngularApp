@@ -17,13 +17,17 @@ export class ProductsService {
   }
 
   getProductsByCategoryName(categoryName: CATEGORY_NAMES) {
-    console.log("getProductsByCategoryName", categoryName)
-    console.log("getProductsByCategoryName", this._products.getValue())
     return this._products.pipe(
-      delay(2000),
+      delay(1000),
       map(products =>
         products.filter(product => product.categoryName === categoryName)
       )
+    );
+  }
+
+  getProductById(id: number) {
+    return this._products.pipe(
+      map(products => products.filter(product => product.id === id)[0])
     );
   }
 }

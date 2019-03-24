@@ -1,5 +1,12 @@
 <div class="topbar-container">
-  <span *ngIf="(_selectedCategory$ | async) as selectedCategory"
-    >Selected category: <span>{{selectedCategory}}</span></span
-  >
+  <div>
+    <span *ngIf="(_selectedCategory$ | async) as selectedCategory"
+      ><b>Selected category: </b>{{ selectedCategory }}</span
+    >
+  </div>
+  <div>
+    <span *ngIf="(_selectedProduct$ | async) as selectedProduct"
+      ><b>Selected Product: </b>{{ selectedProduct.name }}
+    </span>
+  </div>
 </div>

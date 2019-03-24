@@ -8,14 +8,11 @@ export function sidebarReducer(
   switch (action.type) {
     case fromSidebar.CATEGORY_SELECTED:
       let categoryName = action.payload;
-      console.log("action.payload", action.payload)
       console.log("sidebarReducer: CATEGORY_SELECTED", categoryName);
-      let newState = {
+      return {
         ...state,
         selectedCategoryName: categoryName
       };
-      console.log("newState", newState);
-      return newState;
   }
   return state;
 }

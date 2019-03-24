@@ -6,6 +6,7 @@ export interface ProductsState {
   products: Product[];
   loading: boolean;
   loaded: boolean;
+  selectedProduct: Product;
 }
 
 const initialState = {
@@ -20,12 +21,14 @@ export function productsReducer(
 ) {
   switch (action.type) {
     case fromProducts.LOAD_PRODUCTS:
+      console.log("fromProducts.LOAD_PRODUCTS");
       return {
         ...state,
         loading: true
       };
 
     case fromProducts.LOAD_PRODUCTS_FAIL:
+      console.log("fromProducts.LOAD_PRODUCTS_FAIL", action.payload);
       return {
         ...state,
         loading: false,
@@ -40,6 +43,14 @@ export function productsReducer(
         products,
         loading: false,
         loaded: true
+      };
+
+    case fromProducts.PRODUCT_SELECTED:
+      let selectedProduct = action.payload;
+      console.log("PRODUCT_SELECTED", selectedProduct)
+      return {
+        ...state,
+        selectedProduct
       };
   }
 
@@ -57,4 +68,9 @@ export const getProductsState = createFeatureSelector<ProductsState>(
 export const getProducts = createSelector(
   getProductsState,
   getProductsData
+);
+
+export const getSelectedProduct = createSelector(
+  getProductsState,
+  (state: ProductsState) => state.selectedProduct
 );

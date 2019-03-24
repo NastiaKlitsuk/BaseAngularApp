@@ -24,3 +24,5 @@ export class SidebarComponent implements OnInit {
     this.store.dispatch(new ProductsActions.LoadProducts(categoryName))
   }
 }
+
+//TODO: how to deal with the usecase when the user selects another category, and I want to clear the products content?
