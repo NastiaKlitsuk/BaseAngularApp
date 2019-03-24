@@ -1,3 +1,10 @@
 <div class="content-container">
-  content works!
+  <div *ngFor="let product of (_products$ | async)">
+    <div class="product-item-container">
+      <span class="product-name"><b>{{product.name}}</b></span>
+      <img [src]="product.image" height="200px" alt="Description" />
+      <span class="product-description"><b>description:</b> {{product.description}}</span>
+      <span class="price"><b>price: </b>{{product.price}}</span>
+    </div>
+  </div>
 </div>

@@ -1,5 +1,37 @@
 .content-container {
-    width: 75%;
-    background-color: chocolate;
-    margin-left: 1em;
+  width: 75%;
+  margin-left: 1em;
+  display: flex;
+  flex-direction: row;
+}
+
+.product-item-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0.3em;
+  background-color: tan;
+  width: 15em;
+  height: 20em;
+  border: 5px solid chocolate;
+}
+
+.product-item-container > img {
+  margin: 0.3em;
+}
+
+.product-description {
+  font-size: 0.8em;
+  margin: 0.3em;
+}
+
+.price {
+  font-size: 1em;
+  margin: 0.3em;
+}
+
+.product-name {
+  font-size: 1em;
+  margin: 0.3em;
+  text-align: center;
 }
