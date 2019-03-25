@@ -1,6 +1,6 @@
 import { Product } from "../../model/product.model";
 import * as fromProducts from "./products.actions";
-import { createFeatureSelector, createSelector } from "@ngrx/store";
+import { createFeatureSelector } from '@ngrx/store';
 
 export interface ProductsState {
   products: Product[];
@@ -63,14 +63,4 @@ export const getProductsLoaded = (state: ProductsState) => state.loaded;
 
 export const getProductsState = createFeatureSelector<ProductsState>(
   "products"
-);
-
-export const getProducts = createSelector(
-  getProductsState,
-  getProductsData
-);
-
-export const getSelectedProduct = createSelector(
-  getProductsState,
-  (state: ProductsState) => state.selectedProduct
 );

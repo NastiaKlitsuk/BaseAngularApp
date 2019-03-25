@@ -4,7 +4,7 @@ import { ContentComponent } from "./content/content.component";
 
 const routes: Routes = [
   { path: "category/:categoryName", component: ContentComponent },
-  { path: "product/:id", component: ContentComponent }
+  { path: "product/:productId", component: ContentComponent }
 ];
 
 @NgModule({

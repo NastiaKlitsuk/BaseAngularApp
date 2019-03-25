@@ -22,6 +22,8 @@ export class SidebarComponent implements OnInit {
   onMenuSelected(categoryName) {
     this.store.dispatch(new SidebarActions.CategorySelected(categoryName));
     this.store.dispatch(new ProductsActions.LoadProducts(categoryName))
+    this.store.dispatch(new ProductsActions.SelectProduct(null))
+
   }
 }
 

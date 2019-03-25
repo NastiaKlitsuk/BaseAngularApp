@@ -4,7 +4,7 @@ import { Observable } from "rxjs";
 import { getSelectedCategoryName, GlobalState } from '../store/global.state';
 import { appState } from '../store';
 import { Product } from '../model/product.model';
-import { getSelectedProduct } from '../store/products/products.reducer';
+import { getSelectedProduct } from '../store/products/products.selectors';
 
 @Component({
   selector: "app-topbar",

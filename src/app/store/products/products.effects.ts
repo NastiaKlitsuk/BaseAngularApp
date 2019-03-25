@@ -7,7 +7,6 @@ import * as productsActions from "./products.actions";
 import { switchMap, map, catchError } from "rxjs/operators";
 import { CATEGORY_NAMES } from "../../model/categories.model";
 import { of } from "rxjs";
-import { getSelectedProduct } from "./products.reducer";
 import { Product } from "../../model/product.model";
 
 @Injectable()
@@ -45,11 +44,15 @@ export class ProductsEffects {
   getProductById = this.actions$.pipe(
     ofType(productsActions.SELECT_PRODUCT),
     switchMap((action: productsActions.SelectProduct) => {
-      let selectedProduct = action.payload
-      return this.productsService.getProductById(selectedProduct.id).pipe(
-        map(product => new productsActions.ProductSelected(product)),
-        catchError(error => of(new productsActions.ProductSelectedFail(error)))
-      );
+      let selectedProduct = action.payload;
+      return selectedProduct
+        ? this.productsService.getProductById(selectedProduct.id).pipe(
+            map(product => new productsActions.ProductSelected(product)),
+            catchError(error =>
+              of(new productsActions.ProductSelectedFail(error))
+            )
+          )
+        : of(new productsActions.ProductSelected(null));
     })
   );
 }

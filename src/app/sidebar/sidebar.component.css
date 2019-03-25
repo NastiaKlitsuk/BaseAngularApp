@@ -1,6 +1,6 @@
 .nav-container {
   display: flex;
-  padding: 14.5em 3em;
+  padding: 20em 3em;
   flex-direction: column;
   justify-content: flex-start;
   background-color: darkgoldenrod;

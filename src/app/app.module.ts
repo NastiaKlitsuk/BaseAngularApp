@@ -30,7 +30,19 @@ import { CustomSerializer } from "./store/router/router.reducer";
     BrowserModule,
     AppRoutingModule,
     CommonModule,
-    StoreModule.forRoot(allReducers),
+    StoreModule.forRoot(allReducers, {
+      metaReducers: [],
+      initialState: {
+        router: {
+          state: {
+            url: window.location.pathname,
+            params: {},
+            queryParams: {}
+          },
+          navigationId: 0
+        }
+      }
+    }),
     EffectsModule.forRoot([ProductsEffects]),
     StoreRouterConnectingModule,
     StoreDevtoolsModule.instrument()

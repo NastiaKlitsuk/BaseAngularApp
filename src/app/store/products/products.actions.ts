@@ -23,9 +23,10 @@ export class LoadProductsSuccess implements Action {
   constructor(public payload: Product[]) {}
 }
 
+export type MaybeProduct = Product | null
 export class SelectProduct implements Action {
   readonly type = SELECT_PRODUCT;
-  constructor(public payload: Product) {}
+  constructor(public payload: MaybeProduct) {}
 }
 
 export class ProductSelected implements Action {

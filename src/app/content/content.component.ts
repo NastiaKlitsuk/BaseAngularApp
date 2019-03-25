@@ -1,9 +1,10 @@
 import { Component, OnInit } from "@angular/core";
-import { ProductsState, getProducts } from "../store/products/products.reducer";
+import { ProductsState } from "../store/products/products.reducer";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
 import { Product } from "../model/product.model";
 import * as productsActions from "../store/products/products.actions";
+import { getProducts } from '../store/products/products.selectors';
 
 @Component({
   selector: "app-content",
@@ -16,10 +17,5 @@ export class ContentComponent implements OnInit {
 
   ngOnInit() {
     this._products$ = this.store.select(getProducts);
-  }
-
-  onProductSelected(product: Product) {
-    console.log("onProductSelected", product)
-    this.store.dispatch(new productsActions.SelectProduct(product));
   }
 }
