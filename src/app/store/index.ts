@@ -1,14 +1,13 @@
 import { productsReducer } from "./products/products.reducer";
 import { Product } from "../model/product.model";
-import { GlobalState } from './global.state';
-import { sidebarReducer } from './sidebar/sidebar.reducer';
 import * as fromRouter from '@ngrx/router-store'
 import { RouterState } from './router/router.reducer';
 import { RouterReducerState } from '@ngrx/router-store';
+import { globalReducer, GlobalState } from './global/global.reducer';
 
 export const allReducers = {
   products: productsReducer,
-  global: sidebarReducer,
+  global: globalReducer,
   router: fromRouter.routerReducer
 }
 

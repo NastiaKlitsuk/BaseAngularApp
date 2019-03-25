@@ -1,13 +1,14 @@
 import { Injectable } from "@angular/core";
-import { GlobalState, getSelectedCategoryName } from "../global.state";
 import { Store } from "@ngrx/store";
 import { ProductsService } from "src/app/services/products/products.service";
 import { Actions, Effect, ofType } from "@ngrx/effects";
 import * as productsActions from "./products.actions";
+
 import { switchMap, map, catchError } from "rxjs/operators";
 import { CATEGORY_NAMES } from "../../model/categories.model";
 import { of } from "rxjs";
 import { Product } from "../../model/product.model";
+import { getSelectedCategory, GlobalState } from '../global/global.reducer';
 
 @Injectable()
 export class ProductsEffects {
@@ -20,7 +21,7 @@ export class ProductsEffects {
     private productsService: ProductsService
   ) {
     this.store
-      .select(getSelectedCategoryName)
+      .select(getSelectedCategory)
       .subscribe(
         selectedCategoryName =>
           (this._selectedCategoryName = selectedCategoryName)
@@ -39,20 +40,6 @@ export class ProductsEffects {
         );
     })
   );
-
-  @Effect()
-  getProductById = this.actions$.pipe(
-    ofType(productsActions.SELECT_PRODUCT),
-    switchMap((action: productsActions.SelectProduct) => {
-      let selectedProduct = action.payload;
-      return selectedProduct
-        ? this.productsService.getProductById(selectedProduct.id).pipe(
-            map(product => new productsActions.ProductSelected(product)),
-            catchError(error =>
-              of(new productsActions.ProductSelectedFail(error))
-            )
-          )
-        : of(new productsActions.ProductSelected(null));
-    })
-  );
 }
+
+//TODO tests: effects, reducers, services(first)

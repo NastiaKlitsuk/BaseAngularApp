@@ -24,6 +24,7 @@ export function productsReducer(
       console.log("fromProducts.LOAD_PRODUCTS");
       return {
         ...state,
+        products: [],
         loading: true
       };
 
@@ -43,14 +44,6 @@ export function productsReducer(
         products,
         loading: false,
         loaded: true
-      };
-
-    case fromProducts.PRODUCT_SELECTED:
-      let selectedProduct = action.payload;
-      console.log("PRODUCT_SELECTED", selectedProduct)
-      return {
-        ...state,
-        selectedProduct
       };
   }
 

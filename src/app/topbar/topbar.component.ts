@@ -1,10 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
-import { getSelectedCategoryName, GlobalState } from '../store/global.state';
 import { appState } from '../store';
 import { Product } from '../model/product.model';
-import { getSelectedProduct } from '../store/products/products.selectors';
+import { getSelectedCategory } from '../store/global/global.reducer';
+import { getSelectedProduct } from '../store/global/global.selectors';
 
 @Component({
   selector: "app-topbar",
@@ -19,7 +19,7 @@ export class TopbarComponent implements OnInit {
 
   ngOnInit() {
     console.log("ngOnInit app-topbar");
-    this._selectedCategory$ = this.store.select(getSelectedCategoryName);
+    this._selectedCategory$ = this.store.select(getSelectedCategory);
     this._selectedProduct$ = this.store.select(getSelectedProduct)
   }
 }

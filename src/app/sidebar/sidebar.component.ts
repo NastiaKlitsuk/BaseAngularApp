@@ -1,9 +1,10 @@
+import { Store } from "@ngrx/store";
 import { Component, OnInit } from "@angular/core";
 import { CATEGORY_NAMES } from "../model/categories.model";
-import { Store } from "@ngrx/store";
-import * as SidebarActions from "../store/sidebar/sidebar.actions";
-import * as ProductsActions from "../store/products/products.actions"
-import { GlobalState } from "../store/global.state";
+import * as productsActions from "../store/products/products.actions";
+import * as globalActions from "../store/global/global.actions";
+import { GlobalState } from "../store/global/global.reducer";
+import * as fromGlobal from "../store/global/global.actions";
 
 @Component({
   selector: "app-sidebar",
@@ -20,11 +21,8 @@ export class SidebarComponent implements OnInit {
   }
 
   onMenuSelected(categoryName) {
-    this.store.dispatch(new SidebarActions.CategorySelected(categoryName));
-    this.store.dispatch(new ProductsActions.LoadProducts(categoryName))
-    this.store.dispatch(new ProductsActions.SelectProduct(null))
-
+    this.store.dispatch(new fromGlobal.CategorySelected(categoryName));
+    this.store.dispatch(new productsActions.LoadProducts(categoryName));
+    this.store.dispatch(new globalActions.ResetSelectedProduct());
   }
 }
-
-//TODO: how to deal with the usecase when the user selects another category, and I want to clear the products content?
