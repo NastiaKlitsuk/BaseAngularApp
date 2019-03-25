@@ -1,6 +1,6 @@
 <div class="content-container">
   <div *ngFor="let product of (_products$ | async)">
-    <div class="product-item-container" [routerLink]="['/product', product.id]">
+    <div class="product-item-container" [routerLink]="['product', product.id]">
       <span class="product-name"
         ><b>{{ product.name }}</b></span
       >

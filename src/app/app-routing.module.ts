@@ -3,8 +3,11 @@ import { Routes, RouterModule } from "@angular/router";
 import { ContentComponent } from "./content/content.component";
 
 const routes: Routes = [
-  { path: "category/:categoryName", component: ContentComponent },
-  { path: "product/:productId", component: ContentComponent }
+  {
+    path: "category/:categoryName",
+    component: ContentComponent,
+    children: [{ path: "product/:productId", component: ContentComponent }]
+  }
 ];
 
 @NgModule({
