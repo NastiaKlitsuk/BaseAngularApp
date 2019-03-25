@@ -10,11 +10,10 @@
   flex-direction: column;
   justify-content: space-between;
   margin: 0.3em;
-  background-color: tan;
   width: 15em;
   height: 20em;
-  border: 5px solid chocolate;
   cursor: pointer;
+  border: 5px solid #9bc2cf;
 }
 
 .product-item-container > img {

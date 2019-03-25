@@ -1,9 +1,9 @@
 .nav-container {
   display: flex;
-  padding: 20em 3em;
+  padding: 13em 3em;
   flex-direction: column;
   justify-content: flex-start;
-  background-color: darkgoldenrod;
+  background-color: #9bc2cf;
 }
 
 ul {
@@ -11,15 +11,14 @@ ul {
   list-style: none;
 }
 
-li > a {
+ul > li {
   color: black;
-  padding: 0.8em;
+  padding: 0.5em;
   text-align: center;
-  background-color: burlywood;
-  text-decoration: none;
   cursor: pointer;
+  font-weight: bold;
 }
 
-li > a:hover {
+ul > li:hover {
   cursor: pointer;
 }

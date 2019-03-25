@@ -1,6 +1,5 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
 import { CATEGORY_NAMES } from "../model/categories.model";
-import { Product } from "../model/product.model";
 
 export interface GlobalState {
   selectedCategoryName: CATEGORY_NAMES;

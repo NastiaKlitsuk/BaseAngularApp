@@ -1,4 +1,5 @@
 import { BrowserModule } from "@angular/platform-browser";
+import { NoopAnimationsModule } from '@angular/platform-browser/animations'
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 
@@ -28,6 +29,7 @@ import { CustomSerializer } from "./store/router/router.reducer";
   ],
   imports: [
     BrowserModule,
+    NoopAnimationsModule,
     AppRoutingModule,
     CommonModule,
     StoreModule.forRoot(allReducers, {

@@ -1,9 +1,10 @@
 <div class="nav-container">
   <ul *ngFor="let categoryName of _categoriesNames">
-    <li (click)="onMenuSelected(categoryName)">
-      <a [routerLink]="['/category', categoryName]">
-        <span>{{ categoryName }}</span>
-      </a>
+    <li
+      (click)="onMenuSelected(categoryName)"
+      [routerLink]="['/category', categoryName]"
+    >
+      <span>{{ categoryName }}</span>
     </li>
   </ul>
 </div>
