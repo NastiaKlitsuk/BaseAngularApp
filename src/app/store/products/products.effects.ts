@@ -8,7 +8,7 @@ import { switchMap, map, catchError } from "rxjs/operators";
 import { CATEGORY_NAMES } from "../../model/categories.model";
 import { of } from "rxjs";
 import { Product } from "../../model/product.model";
-import { getSelectedCategory, GlobalState } from '../global/global.reducer';
+import { getSelectedCategory, GlobalState } from "../global/global.reducer";
 
 @Injectable()
 export class ProductsEffects {
@@ -29,7 +29,7 @@ export class ProductsEffects {
   }
 
   @Effect()
-  loadProductsByCategory = this.actions$.pipe(
+  loadProductsByCategory$ = this.actions$.pipe(
     ofType(productsActions.LOAD_PRODUCTS),
     switchMap(() => {
       return this.productsService
@@ -38,6 +38,17 @@ export class ProductsEffects {
           map(products => new productsActions.LoadProductsSuccess(products)),
           catchError(error => of(new productsActions.LoadProductsFail(error)))
         );
+    })
+  );
+
+  @Effect()
+  filterProductsBySearchQuery$ = this.actions$.pipe(
+    ofType(productsActions.SEARCH_PRODUCTS),
+    switchMap((action: productsActions.SearchProducts) => {
+      return this.productsService.getProductsBySearchQuery(action.payload).pipe(
+        map(products => new productsActions.LoadProductsSuccess(products)),
+        catchError(error => of(new productsActions.LoadProductsFail(error)))
+      );
     })
   );
 }

@@ -1,6 +1,6 @@
 import { Product } from "../../model/product.model";
 import * as fromProducts from "./products.actions";
-import { createFeatureSelector } from '@ngrx/store';
+import { createFeatureSelector } from "@ngrx/store";
 
 export interface ProductsState {
   products: Product[];

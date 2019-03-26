@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Observable, BehaviorSubject, from } from "rxjs";
+import { Observable, BehaviorSubject, from, of } from "rxjs";
 import { Product, PRODUCTS } from "../../model/product.model";
 import { CATEGORY_NAMES } from "src/app/model/categories.model";
 import { delay, map } from "rxjs/operators";
@@ -29,5 +29,10 @@ export class ProductsService {
     return this._products.pipe(
       map(products => products.filter(product => product.id === id)[0])
     );
+  }
+
+  getProductsBySearchQuery(searchQuery: string) {
+    let lowerCaseSearchQuery = searchQuery.toLocaleLowerCase()
+    return of(PRODUCTS.filter(product => product.name.toLocaleLowerCase().indexOf(lowerCaseSearchQuery) !== -1))
   }
 }

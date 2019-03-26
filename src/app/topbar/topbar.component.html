@@ -1,5 +1,5 @@
 <div class="topbar-container">
-  <mat-icon [routerLink]="['/search-products']">search</mat-icon>
+  <app-search></app-search>
   <div class="selected-container">
     <div>
       <span *ngIf="(_selectedCategory$ | async) as selectedCategory"

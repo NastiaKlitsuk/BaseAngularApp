@@ -10,8 +10,8 @@ const routes: Routes = [
     children: [{ path: "product/:productId", component: ContentComponent }]
   },
   {
-    path: "search-products",
-    component: SearchComponent,
+    path: "products",
+    component: ContentComponent,
   }
 ];
 
