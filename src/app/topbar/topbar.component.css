@@ -1,13 +1,18 @@
 .topbar-container {
-    display: flex;
-    text-align: center;
-    padding: 2em;
-    margin-bottom: 0.1em;
-    background-color: #7997a1;
-    justify-content: space-between;
+  display: flex;
+  text-align: center;
+  padding: 0.5em;
+  margin-bottom: 0.1em;
+  background-color: #7997a1;
+  justify-content: space-between;
 }
 
-.selected-container{
-    display: flex;
-    flex-direction: column;
+.selected-container {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-icon {
+  align-self: center;
+  cursor: pointer;
 }

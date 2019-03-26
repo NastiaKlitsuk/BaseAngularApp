@@ -1,0 +1,13 @@
+.search-container {
+  display: flex;
+  margin: 0.3em;
+}
+
+.full-width {
+  width: 100%;
+}
+
+mat-icon {
+  align-self: center;
+  cursor: pointer;
+}

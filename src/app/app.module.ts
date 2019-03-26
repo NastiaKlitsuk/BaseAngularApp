@@ -1,5 +1,5 @@
 import { BrowserModule } from "@angular/platform-browser";
-import { NoopAnimationsModule } from '@angular/platform-browser/animations'
+import { NoopAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 
@@ -19,19 +19,32 @@ import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { EffectsModule } from "@ngrx/effects";
 import { ProductsEffects } from "./store/products/products.effects";
 import { CustomSerializer } from "./store/router/router.reducer";
+import { SearchComponent } from "./search/search.component";
+import { FormsModule } from "@angular/forms";
+
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
     TopbarComponent,
-    ContentComponent
+    ContentComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     NoopAnimationsModule,
     AppRoutingModule,
     CommonModule,
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule,
+    MatTableModule,
     StoreModule.forRoot(allReducers, {
       metaReducers: [],
       initialState: {

@@ -1,0 +1,27 @@
+<div>
+  <div class="search-container">
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Search products" />
+    </mat-form-field>
+  </div>
+
+  <mat-table [dataSource]="_products$ | async">
+    <ng-container matColumnDef="productName">
+      <mat-header-cell mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+      <mat-cell mat-cell *matCellDef="let product">{{ product.name }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="productDescription">
+      <mat-header-cell mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
+      <mat-cell mat-cell *matCellDef="let product">{{ product.description }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="productPrice">
+      <mat-header-cell mat-header-cell *matHeaderCellDef>Price</mat-header-cell>
+      <mat-cell mat-cell *matCellDef="let product">{{ product.price }}</mat-cell>
+    </ng-container>
+
+    <mat-header-row mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+    <mat-row mat-row *matRowDef="let row; columns: columnsToDisplay;"></mat-row>
+  </mat-table>
+</div>
