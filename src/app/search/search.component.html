@@ -1,6 +1,6 @@
 <div class="search-container">
   <mat-form-field class="full-width">
-    <input matInput placeholder="Search products" [(ngModel)]=searchQueryString/>
+    <input matInput #searchQueryInput placeholder="Search products"/>
   </mat-form-field>
-  <mat-icon [routerLink]="['/products']" (click)="search()">search</mat-icon>
+  <mat-icon [routerLink]="['/products']" (click)="searchByQuery(searchQueryInput.value)">search</mat-icon>
 </div>

@@ -1,5 +1,5 @@
 <div class="topbar-container">
-  <app-search></app-search>
+  <app-search (search)="searchProducts($event)"></app-search>
   <div class="selected-container">
     <div>
       <span *ngIf="(_selectedCategory$ | async) as selectedCategory"

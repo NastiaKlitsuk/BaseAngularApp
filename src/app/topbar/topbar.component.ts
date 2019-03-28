@@ -5,6 +5,7 @@ import { appState } from '../store';
 import { Product } from '../model/product.model';
 import { getSelectedCategory } from '../store/global/global.reducer';
 import { getSelectedProduct } from '../store/global/global.selectors';
+import * as productsActions from '../store/products/products.actions'
 
 @Component({
   selector: "app-topbar",
@@ -21,5 +22,12 @@ export class TopbarComponent implements OnInit {
     console.log("ngOnInit app-topbar");
     this._selectedCategory$ = this.store.select(getSelectedCategory);
     this._selectedProduct$ = this.store.select(getSelectedProduct)
+  }
+
+  searchProducts(searchQuery: string)
+  {
+    this.store.dispatch(
+      new productsActions.SearchProducts(searchQuery)
+    );
   }
 }
