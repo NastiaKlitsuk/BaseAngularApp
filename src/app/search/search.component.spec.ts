@@ -1,16 +1,21 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { SearchComponent } from './search.component';
+import { SearchComponent } from "./search.component";
+import { MatIconModule } from "@angular/material/icon";
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { RouterTestingModule } from '@angular/router/testing';
+import { MatInputModule } from '@angular/material/input';
+import { NoopAnimationsModule } from "@angular/platform-browser/animations";
 
-describe('SearchComponent', () => {
+describe("SearchComponent", () => {
   let component: SearchComponent;
   let fixture: ComponentFixture<SearchComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SearchComponent ]
-    })
-    .compileComponents();
+      imports: [RouterTestingModule, NoopAnimationsModule, MatIconModule, MatFormFieldModule, MatInputModule],
+      declarations: [SearchComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +24,7 @@ describe('SearchComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
