@@ -18,7 +18,6 @@ export class ProductsService {
 
   getProductsByCategoryName(categoryName: CATEGORY_NAMES) {
     return this._products.pipe(
-      delay(1000),
       map(products =>
         products.filter(product => product.categoryName === categoryName)
       )
@@ -27,7 +26,7 @@ export class ProductsService {
 
   getProductById(id: number) {
     return this._products.pipe(
-      map(products => products.filter(product => product.id === id)[0])
+      map(products => products.filter(product => product.id === id).shift())
     );
   }
 

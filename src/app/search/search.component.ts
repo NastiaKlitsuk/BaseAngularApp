@@ -15,7 +15,7 @@ export class SearchComponent implements OnInit {
 
   ngOnInit() {}
 
-  searchProducts() {
+  search() {
     this.store.dispatch(
       new productsActions.SearchProducts(this.searchQueryString)
     );

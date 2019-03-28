@@ -6,7 +6,6 @@ export interface ProductsState {
   products: Product[];
   loading: boolean;
   loaded: boolean;
-  selectedProduct: Product;
 }
 
 const initialState = {

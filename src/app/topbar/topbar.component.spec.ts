@@ -1,16 +1,30 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { TopbarComponent } from './topbar.component';
+import { TopbarComponent } from "./topbar.component";
+import { Component } from "@angular/core";
+import { Store } from "@ngrx/store";
+import { TestStore } from "../testing/test-store";
 
-describe('TopbarComponent', () => {
+@Component({
+  selector: "app-search",
+  template: ""
+})
+class FakeSearchComponent {}
+
+describe("TopbarComponent", () => {
   let component: TopbarComponent;
   let fixture: ComponentFixture<TopbarComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TopbarComponent ]
-    })
-    .compileComponents();
+      declarations: [TopbarComponent, FakeSearchComponent],
+      providers: [
+        {
+          provide: Store,
+          useClass: TestStore
+        }
+      ]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +33,7 @@ describe('TopbarComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
