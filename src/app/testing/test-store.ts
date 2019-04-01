@@ -1,5 +1,6 @@
 import { BehaviorSubject, Observable } from "rxjs";
 
+//TODO: how to use MockStore
 export class TestStore<T> {
   private state: BehaviorSubject<T> = new BehaviorSubject(undefined);
 

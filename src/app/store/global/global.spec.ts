@@ -3,7 +3,6 @@ import { CategorySelected } from "./global.actions";
 import { CATEGORY_NAMES } from "src/app/model/categories.model";
 import * as fromGlobalState from "./global.selectors";
 import { PRODUCTS } from "src/app/model/product.model";
-import { ActivatedRouteStub } from "src/app/testing/activated-route-stub";
 
 describe("Reducers - Global State Changes", () => {
   it("should have an initial state", () => {
@@ -31,24 +30,30 @@ describe("Reducers - Global State Changes", () => {
   });
 });
 
-//TODO: how to fake router state
+describe("Global Selectors", () => {
+  it("should return product with id 1", () => {
+    const productsState = { products: PRODUCTS, loaded: true, loading: false };
+    const expectedProduct = {
+      id: 1,
+      name: "The First Years Stack Up Cups",
+      description: "Eligible for Shipping to Israel",
+      price: 15,
+      categoryName: CATEGORY_NAMES.TOYS,
+      image: "./assets/cups.jpg"
+    };
+    const router = {
+      state: {
+        url: "/category/ART/product/1",
+        queryParams: {},
+        params: { productId: 1 }
+      }
+    };
 
-// fdescribe("Global Selectors", () => {
-//   it("should return product with id 1", () => {
-//     let expectedProduct = {
-//       id: 1,
-//       name: "The First Years Stack Up Cups",
-//       description: "Eligible for Shipping to Israel",
-//       price: 15,
-//       categoryName: CATEGORY_NAMES.TOYS,
-//       image: "./assets/cups.jpg"
-//     };
-//     let activatedRoute = new ActivatedRouteStub();
-//     activatedRoute.setParamMap({ productId: 1 });
-//     const selectedProduct = fromGlobalState.getSelectedProduct.projector(
-//       { products: PRODUCTS, loaded: true, loading: false }, ???
-//     );
+    const selectedProduct = fromGlobalState.getSelectedProduct.projector(
+      productsState,
+      router
+    );
 
-//     expect(selectedProduct).toEqual(expectedProduct);
-//   });
-// });
+    expect(selectedProduct).toEqual(expectedProduct);
+  });
+});
