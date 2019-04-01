@@ -1,17 +1,17 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TopbarComponent } from "./topbar.component";
-import { Component } from "@angular/core";
-import { Store } from "@ngrx/store";
-import { TestStore } from "../testing/test-store";
+import { TopbarComponent } from './topbar.component';
+import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { TestStore } from '../testing/test-store';
 
 @Component({
-  selector: "app-search",
-  template: ""
+  selector: 'app-search',
+  template: ''
 })
 class FakeSearchComponent {}
 
-describe("TopbarComponent", () => {
+describe('TopbarComponent', () => {
   let component: TopbarComponent;
   let fixture: ComponentFixture<TopbarComponent>;
 
@@ -33,7 +33,7 @@ describe("TopbarComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should create", () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });

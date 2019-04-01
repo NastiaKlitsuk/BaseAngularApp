@@ -1,14 +1,14 @@
-import { createSelector } from "@ngrx/store";
-import { getProductsState } from "../products/products.reducer";
-import { getRouterState } from "../router/router.reducer";
-import { Product } from "../../model/product.model";
+import { createSelector } from '@ngrx/store';
+import { productsState } from '../products/products.reducer';
+import { getRouterState } from '../router/router.reducer';
+import { Product } from '../../model/product.model';
 
 export const getSelectedProduct = createSelector(
-  getProductsState,
+  productsState,
   getRouterState,
-  (productsState, router): Product =>
+  (state, router): Product =>
     router.state &&
-    productsState.products
+    state.products
       .filter(product => product.id === +router.state.params.productId)
       .shift()
 );

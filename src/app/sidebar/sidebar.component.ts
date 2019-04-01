@@ -1,14 +1,14 @@
-import { Store } from "@ngrx/store";
-import { Component, OnInit } from "@angular/core";
-import { CATEGORY_NAMES } from "../model/categories.model";
-import * as productsActions from "../store/products/products.actions";
-import { GlobalState } from "../store/global/global.reducer";
-import * as fromGlobal from "../store/global/global.actions";
+import { Store } from '@ngrx/store';
+import { Component, OnInit } from '@angular/core';
+import { CATEGORY_NAMES } from '../model/categories.model';
+import * as productsActions from '../store/products/products.actions';
+import { GlobalState } from '../store/global/global.reducer';
+import * as fromGlobal from '../store/global/global.actions';
 
 @Component({
-  selector: "app-sidebar",
-  templateUrl: "./sidebar.component.html",
-  styleUrls: ["./sidebar.component.css"]
+  selector: 'app-sidebar',
+  templateUrl: './sidebar.component.html',
+  styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
   private _categoriesNames: string[];

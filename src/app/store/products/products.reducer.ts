@@ -1,6 +1,6 @@
-import { Product } from "../../model/product.model";
-import * as fromProducts from "./products.actions";
-import { createFeatureSelector } from "@ngrx/store";
+import { Product } from '../../model/product.model';
+import * as fromProducts from './products.actions';
+import { createFeatureSelector } from '@ngrx/store';
 
 export interface ProductsState {
   products: Product[];
@@ -20,7 +20,7 @@ export function productsReducer(
 ) {
   switch (action.type) {
     case fromProducts.LOAD_PRODUCTS:
-      console.log("fromProducts.LOAD_PRODUCTS");
+      console.log('fromProducts.LOAD_PRODUCTS');
       return {
         ...state,
         products: [],
@@ -28,7 +28,7 @@ export function productsReducer(
       };
 
     case fromProducts.LOAD_PRODUCTS_FAIL:
-      console.log("fromProducts.LOAD_PRODUCTS_FAIL", action.payload);
+      console.log('fromProducts.LOAD_PRODUCTS_FAIL', action.payload);
       return {
         ...state,
         loading: false,
@@ -36,8 +36,8 @@ export function productsReducer(
       };
 
     case fromProducts.LOAD_PRODUCTS_SUCCESS:
-      let products = action.payload;
-      console.log("fromProducts.LOAD_PRODUCTS_SUCCESS", products);
+      const products = action.payload;
+      console.log('fromProducts.LOAD_PRODUCTS_SUCCESS', products);
       return {
         ...state,
         products,
@@ -53,6 +53,6 @@ export const getProductsData = (state: ProductsState) => state.products;
 export const getProductsLoading = (state: ProductsState) => state.loading;
 export const getProductsLoaded = (state: ProductsState) => state.loaded;
 
-export const getProductsState = createFeatureSelector<ProductsState>(
-  "products"
+export const productsState = createFeatureSelector<ProductsState>(
+  'products'
 );

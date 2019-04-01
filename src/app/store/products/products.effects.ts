@@ -53,4 +53,3 @@ export class ProductsEffects {
   );
 }
 
-//TODO tests: effects, reducers, services(first)
