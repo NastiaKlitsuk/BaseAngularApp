@@ -8,7 +8,7 @@ export interface ProductsState {
   loaded: boolean;
 }
 
-const initialState = {
+export const initialState = {
   products: [],
   loading: false,
   loaded: false

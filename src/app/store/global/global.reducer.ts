@@ -12,7 +12,7 @@ export const initialGlobalState: GlobalState = {
 
 export function globalReducer(
   state = initialGlobalState,
-  action: globalActions.GlobalActions | globalActions.ResetSelectedProduct
+  action: globalActions.GlobalActions
 ) {
   switch (action.type) {
     case globalActions.CATEGORY_SELECTED:
@@ -21,18 +21,6 @@ export function globalReducer(
       return {
         ...state,
         selectedCategoryName: categoryName
-      };
-    case globalActions.PRODUCT_SELECTED:
-      let selectedProduct = action.payload;
-      console.log("PRODUCT_SELECTED", selectedProduct);
-      return {
-        ...state,
-        selectedProduct
-      };
-    case globalActions.RESET_SELECTED_PRODUCT:
-      return {
-        ...state,
-        selectedProduct: null
       };
   }
   return state;

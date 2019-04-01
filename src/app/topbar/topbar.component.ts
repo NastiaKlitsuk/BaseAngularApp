@@ -1,9 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
-import { appState } from '../store';
 import { Product } from '../model/product.model';
-import { getSelectedCategory } from '../store/global/global.reducer';
+import { getSelectedCategory, GlobalState } from '../store/global/global.reducer';
 import { getSelectedProduct } from '../store/global/global.selectors';
 import * as productsActions from '../store/products/products.actions'
 
@@ -16,7 +15,7 @@ export class TopbarComponent implements OnInit {
   private _selectedCategory$: Observable<string>;
   private _selectedProduct$: Observable<Product>;
 
-  constructor(private store: Store<appState>) {}
+  constructor(private store: Store<GlobalState>) {}
 
   ngOnInit() {
     console.log("ngOnInit app-topbar");
