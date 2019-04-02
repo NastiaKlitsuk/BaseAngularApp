@@ -1,5 +1,5 @@
 <div class="nav-container">
-  <ul *ngFor="let categoryName of _categoriesNames">
+  <ul *ngFor="let categoryName of categoriesNames">
     <li
       (click)="onMenuSelected(categoryName)"
       [routerLink]="['/category', categoryName]"

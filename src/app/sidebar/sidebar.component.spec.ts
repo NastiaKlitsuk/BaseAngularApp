@@ -18,7 +18,7 @@ import { Component } from '@angular/core';
 @Component({
   template: ''
 })
-export class DummyComponent {}
+class DummyComponent {}
 
 describe('SidebarComponent', () => {
   let routerLinks;

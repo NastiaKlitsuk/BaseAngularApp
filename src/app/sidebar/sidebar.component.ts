@@ -11,12 +11,13 @@ import * as fromGlobal from '../store/global/global.actions';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-  private _categoriesNames: string[];
+  // TODO: are all the fileds that ysed in the template should be public?
+  public categoriesNames: string[];
 
   constructor(private store: Store<GlobalState>) {}
 
   ngOnInit() {
-    this._categoriesNames = Object.values(CATEGORY_NAMES);
+    this.categoriesNames = Object.values(CATEGORY_NAMES);
   }
 
   onMenuSelected(categoryName) {

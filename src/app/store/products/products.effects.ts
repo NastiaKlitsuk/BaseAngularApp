@@ -1,14 +1,14 @@
-import { Injectable } from "@angular/core";
-import { Store } from "@ngrx/store";
-import { ProductsService } from "src/app/services/products/products.service";
-import { Actions, Effect, ofType } from "@ngrx/effects";
-import * as productsActions from "./products.actions";
+import { Injectable } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { ProductsService } from 'src/app/services/products/products.service';
+import { Actions, Effect, ofType } from '@ngrx/effects';
+import * as productsActions from './products.actions';
 
-import { switchMap, map, catchError } from "rxjs/operators";
-import { CATEGORY_NAMES } from "../../model/categories.model";
-import { of } from "rxjs";
-import { Product } from "../../model/product.model";
-import { getSelectedCategory, GlobalState } from "../global/global.reducer";
+import { switchMap, map, catchError } from 'rxjs/operators';
+import { CATEGORY_NAMES } from '../../model/categories.model';
+import { of } from 'rxjs';
+import { Product } from '../../model/product.model';
+import { getSelectedCategory, GlobalState } from '../global/global.reducer';
 
 @Injectable()
 export class ProductsEffects {
@@ -52,4 +52,3 @@ export class ProductsEffects {
     })
   );
 }
-
